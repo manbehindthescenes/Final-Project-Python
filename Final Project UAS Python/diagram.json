@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "author": "Valencia Maharani Sonia Putri",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 43.33, "left": -9.33, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -114.8,
+      "left": -122.34,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": 52.43,
+      "left": -131.84,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 46.53,
+      "left": 132.76,
+      "attrs": { "color": "purple" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 125.1,
+      "left": 136.17,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:VCC", "esp:3V3", "red", [ "h-60.67", "v336.24", "h285.33", "v-58.67" ] ],
+    [ "pir1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h-47.34", "v279.74" ] ],
+    [ "lcd1:SDA", "esp:D21", "orange", [ "h-24", "v94.07", "h239.33", "v80.67" ] ],
+    [ "lcd1:SCL", "esp:D22", "orange", [ "h-11.34", "v95.24", "h218.67", "v41.33" ] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "v114.4", "h214.5", "v-54.67" ] ],
+    [ "led1:A", "r1:1", "gold", [ "v0" ] ],
+    [ "esp:D15", "r1:2", "gold", [ "h0" ] ],
+    [ "esp:GND.1", "led1:C", "black", [ "h0" ] ],
+    [ "esp:D14", "pir1:OUT", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
